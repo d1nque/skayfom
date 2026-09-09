@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SKAYFOM Barbershop — чоловічі стрижки в Ірпені</title>
+<meta name="description" content="Барбершоп SKAYFOM в Ірпені: дві локації, 10 барберів, постійна знижка 10% військовим, безкоштовна укладка та видалення волосся воском.">
+<meta name="theme-color" content="#0E1416">
+<meta property="og:title" content="SKAYFOM Barbershop — Ірпінь">
+<meta property="og:description" content="Стрижка з кайфом. Дві локації в Ірпені, постійні 10% військовим.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400&family=Manrope:wght@300;400;500;600&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E1416;
+  --surface:#141B1E;
+  --steel:#2A3538;
+  --steel-2:#3D4A4D;
+  --mist:#97A0A1;
+  --chalk:#E7E9E9;
+  --led:#8C2FD9;
+  --display:'Unbounded','Futura','Century Gothic','Trebuchet MS',sans-serif;
+  --body:'Manrope','Helvetica Neue',Arial,Helvetica,sans-serif;
+  --hand:'Caveat','Bradley Hand','Segoe Print','Comic Sans MS',sans-serif;
+  --gut:clamp(20px,5vw,48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--ink);color:var(--chalk);
+  font-family:var(--body);font-weight:400;font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+[hidden]{display:none!important}
+a{color:inherit}
+.wrap{width:min(1180px,100% - var(--gut) * 2);margin-inline:auto}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--led);outline-offset:3px}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+  font-family:var(--body);font-size:15px;font-weight:600;letter-spacing:.04em;
+  text-decoration:none;cursor:pointer;
+  padding:16px 30px;border:1px solid var(--chalk);background:var(--chalk);color:var(--ink);
+  border-radius:0;transition:background .18s,color .18s,border-color .18s;
+}
+.btn:hover{background:transparent;color:var(--chalk)}
+.btn--ghost{background:transparent;color:var(--chalk);border-color:var(--steel-2)}
+.btn--ghost:hover{background:var(--chalk);color:var(--ink);border-color:var(--chalk)}
+.btn--sm{padding:11px 20px;font-size:13px}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;background:rgba(14,20,22,.82);
+  backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s;
+}
+header.is-stuck{border-bottom-color:var(--steel)}
+header.is-stuck::after{
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--led),transparent);opacity:.85;
+}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.bar__logo img{width:132px}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{
+  text-decoration:none;font-size:14px;letter-spacing:.05em;color:var(--mist);
+  transition:color .18s;
+}
+.nav a:hover{color:var(--chalk)}
+.ig{display:inline-flex;align-items:center;gap:8px;color:var(--mist);text-decoration:none;font-size:14px}
+.ig:hover{color:var(--chalk)}
+.ig svg{width:19px;height:19px}
+@media(max-width:860px){
+  .nav .nav__link{display:none}
+  .nav{gap:16px}
+  .bar__logo img{width:104px}
+}
+@media(max-width:560px){
+  .ig span{display:none}
+  .btn--sm{padding:10px 16px;font-size:12.5px}
+  .hero__logo{width:78%;margin-bottom:34px}
+  .hero__cta .btn{width:100%}
+}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;min-height:min(86vh,760px);display:grid;place-items:center;
+  text-align:center;padding:clamp(70px,12vh,130px) 0 clamp(56px,9vh,96px);overflow:hidden;
+}
+.hero__bg{position:absolute;inset:-17% 0;overflow:hidden;will-change:transform}
+.hero__bg .drift{
+  background-image:var(--tex-wide);
+  filter:saturate(.4) brightness(1.15) contrast(1.02);
+}
+.drift{
+  position:absolute;inset:-8%;display:block;
+  background-size:cover;background-position:center;
+  animation:drift 36s ease-in-out infinite alternate;
+  will-change:transform;
+}
+@keyframes drift{
+  from{transform:translate3d(-1.8%,-1.2%,0) scale(1.04)}
+  to  {transform:translate3d(1.8%,1.2%,0)  scale(1.12)}
+}
+.hero__bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(14,20,22,.55) 0%,rgba(14,20,22,.66) 45%,rgba(14,20,22,.95) 88%,var(--ink) 100%);
+}
+@media(max-width:760px){.hero__bg .drift{background-image:var(--tex-tall)}}
+.hero__in{position:relative;z-index:2;width:min(820px,100% - var(--gut) * 2)}
+.hero__logo{width:min(520px,86%);margin:0 auto 40px}
+.hero h1{margin:0}
+.hero__tag{
+  font-family:var(--display);font-weight:200;font-size:clamp(20px,3.3vw,32px);
+  letter-spacing:.02em;margin:0 0 10px;line-height:1.25;
+}
+.hero__tag{margin-bottom:38px}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.hero__scroll{
+  position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;
+  font-family:var(--hand);font-size:19px;color:var(--mist);text-decoration:none;
+}
+
+/* ---------- wall band ---------- */
+.wall{
+  border-block:1px solid var(--steel);padding:22px 0;overflow:hidden;
+  background:var(--surface);
+}
+.wall__row{display:flex;width:max-content;gap:44px;white-space:nowrap;will-change:transform}
+.wall__row span{
+  font-family:var(--hand);font-size:clamp(22px,3.4vw,34px);color:rgba(231,233,233,.34);
+  line-height:1;
+}
+.wall__row--a{animation:slideL 64s linear infinite}
+.wall__row--b{animation:slideR 78s linear infinite;margin-top:10px}
+@keyframes slideL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes slideR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+
+/* ---------- sections ---------- */
+section{padding:clamp(62px,10vw,120px) 0;scroll-margin-top:84px}
+#top{scroll-margin-top:0}
+.h2{
+  font-family:var(--display);font-weight:200;line-height:1.1;letter-spacing:-.01em;
+  font-size:clamp(30px,5vw,54px);margin:0 0 14px;
+}
+.lede{color:var(--mist);font-weight:300;max-width:52ch;margin:0 0 clamp(34px,5vw,56px);font-size:17px}
+
+/* ---------- perks ---------- */
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--steel)}
+.perk{padding:24px 26px 22px;border-right:1px solid var(--steel);border-bottom:1px solid var(--steel)}
+.perk:first-child{padding-left:0}
+.perk:last-child{border-right:0;padding-right:0}
+.perk__fig{
+  font-family:var(--display);font-weight:200;font-size:clamp(26px,3.4vw,38px);
+  line-height:1;letter-spacing:-.02em;margin-bottom:10px;
+}
+.perk__t{font-weight:500;margin:0 0 4px;font-size:15.5px}
+.perk__d{color:var(--mist);font-weight:300;font-size:14px;line-height:1.5;margin:0}
+@media(max-width:820px){
+  .perks{grid-template-columns:1fr}
+  .perk{padding:22px 0;border-right:0}
+  .perk:first-child{padding-top:22px}
+}
+
+/* ---------- reel ---------- */
+.reel{position:relative;margin-bottom:30px}
+.reel__mask{
+  overflow:hidden;position:relative;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 11%,#000 89%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 11%,#000 89%,transparent);
+}
+.reel__track{display:flex;gap:16px;will-change:transform}
+.card{
+  flex:0 0 auto;width:216px;margin:0;padding:0;position:relative;opacity:.38;cursor:pointer;
+  transition:opacity .35s;background:none;border:0;color:inherit;font:inherit;text-align:left;
+}
+.card.is-active{opacity:1}
+.card__ph{display:block;position:relative;aspect-ratio:2/3;overflow:hidden;outline:1px solid transparent;outline-offset:0;transition:outline-color .35s}
+.card__img{
+  position:absolute;inset:0;height:100%;width:100%;object-fit:cover;background:var(--surface);
+  filter:grayscale(1) contrast(1.04);transition:filter .35s,opacity .4s;
+}
+.card__img--alt{opacity:0}
+.card:hover .card__img--alt,.card:focus-visible .card__img--alt{opacity:1}
+.card.is-active .card__ph{outline-color:var(--chalk)}
+.card.is-active .card__img{filter:grayscale(0)}
+.card__name{
+  margin:12px 0 0;font-size:14.5px;font-weight:500;letter-spacing:.02em;color:var(--mist);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.card.is-active .card__name{color:var(--chalk)}
+.card__rank{
+  margin:2px 0 0;font-size:12.5px;letter-spacing:.06em;color:var(--steel-2);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.card.is-active .card__rank{color:var(--mist)}
+.reel__pointer{
+  position:absolute;left:50%;top:-12px;bottom:56px;width:0;
+  transform:translateX(-50%);pointer-events:none;
+}
+.reel__pointer::before,.reel__pointer::after{
+  content:"";position:absolute;left:50%;transform:translateX(-50%);
+  border-left:6px solid transparent;border-right:6px solid transparent;
+}
+.reel__pointer::before{top:-2px;border-top:8px solid var(--led)}
+.reel__pointer::after{bottom:-2px;border-bottom:8px solid var(--led)}
+.reel__ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.result{
+  border-top:1px solid var(--steel);margin-top:34px;padding-top:26px;
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;min-height:64px;
+}
+.result__book{margin-left:auto}
+.result__name{font-family:var(--display);font-weight:300;font-size:clamp(22px,3.4vw,32px);margin:0}
+.result__role{color:var(--mist);font-size:15px}
+.result__hint{color:var(--mist);font-weight:300}
+@media(max-width:640px){.card{width:150px}}
+
+/* ---------- locations ---------- */
+.locs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,34px)}
+@media(max-width:880px){.locs{grid-template-columns:1fr}}
+.loc{border:1px solid var(--steel);background:var(--surface);display:flex;flex-direction:column}
+.loc.is-near{border-color:var(--led)}
+.loc__map{position:relative;aspect-ratio:16/10;background:var(--surface);overflow:hidden}
+.loc__map .fallback{
+  position:absolute;inset:0;display:grid;place-items:center;gap:14px;align-content:center;
+  background-image:var(--shot);background-size:cover;background-position:center;text-align:center;padding:20px;
+}
+.loc__map .fallback::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,20,22,.6),rgba(14,20,22,.82))}
+.loc__map .fallback > *{position:relative}
+.loc__map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;opacity:0;transition:opacity .45s;filter:grayscale(1) invert(.91) contrast(.88) brightness(1.04)}
+.loc__map iframe.is-on{opacity:1}
+.loc__body{padding:26px 26px 28px;display:flex;flex-direction:column;gap:14px;flex:1}
+.loc__addr{font-family:var(--display);font-weight:300;font-size:19px;margin:0;line-height:1.35}
+.loc__meta{color:var(--mist);font-size:14.5px;margin:0}
+.loc__tel{display:flex;flex-direction:column;gap:6px}
+.loc__tel a{
+  text-decoration:none;font-size:18px;letter-spacing:.02em;width:fit-content;
+  border-bottom:1px solid var(--steel-2);padding-bottom:2px;transition:border-color .18s;
+}
+.loc__tel a:hover{border-color:var(--chalk)}
+.loc__dist{font-family:var(--hand);font-size:20px;color:var(--led);margin:0}
+.loc__act{margin-top:auto;padding-top:6px;display:flex;gap:10px 14px;flex-wrap:wrap;align-items:center}
+.loc__ig{display:inline-flex;align-items:center;gap:7px;color:var(--mist);text-decoration:none;font-size:14px}
+.loc__ig:hover{color:var(--chalk)}
+.loc__ig svg{width:17px;height:17px}
+.geo{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.geo__msg{color:var(--mist);font-size:14.5px}
+
+/* ---------- gallery ---------- */
+.tabs{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid var(--steel);margin-bottom:clamp(20px,3vw,30px)}
+.tab{
+  appearance:none;background:none;border:0;border-bottom:1px solid transparent;margin-bottom:-1px;
+  color:var(--mist);font:inherit;font-size:15px;letter-spacing:.03em;padding:12px 22px 13px;cursor:pointer;
+  transition:color .18s,border-color .18s;
+}
+.tab:first-child{padding-left:0}
+.tab:hover{color:var(--chalk)}
+.tab[aria-selected="true"]{color:var(--chalk);border-bottom-color:var(--chalk)}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.4vw,18px)}
+@media(max-width:900px){.gal{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.gal{grid-template-columns:repeat(2,1fr)}}
+.gal__i{
+  appearance:none;padding:0;border:0;background:var(--surface);cursor:zoom-in;display:block;
+  aspect-ratio:3/4;overflow:hidden;position:relative;
+}
+.gal__i:first-child{grid-column:span 2;grid-row:span 2}
+@media(max-width:600px){.gal__i:first-child{grid-column:span 2;grid-row:span 1;aspect-ratio:3/2}}
+.gal__i img{width:100%;height:100%;object-fit:cover;transition:transform .5s,filter .35s;filter:saturate(.9)}
+.gal__i:hover img,.gal__i:focus-visible img{transform:scale(1.04);filter:saturate(1)}
+
+/* ---------- lightbox ---------- */
+.lb{
+  position:fixed;inset:0;z-index:100;background:rgba(10,15,16,.96);
+  display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);
+}
+.lb__img{max-width:100%;max-height:100%;object-fit:contain}
+.lb__x,.lb__nav{
+  position:absolute;appearance:none;background:none;border:0;color:var(--mist);cursor:pointer;
+  line-height:1;transition:color .18s;
+}
+.lb__x:hover,.lb__nav:hover{color:var(--chalk)}
+.lb__x{top:16px;right:20px;font-size:36px}
+.lb__nav{top:50%;transform:translateY(-50%);font-size:54px;padding:10px 16px}
+.lb__nav--prev{left:4px}
+.lb__nav--next{right:4px}
+
+/* ---------- final cta ---------- */
+.cta{position:relative;overflow:hidden;text-align:center;background:var(--ink)}
+.cta__bg{position:absolute;inset:-18% 0;overflow:hidden;will-change:transform}
+.cta__bg .drift{
+  background-image:var(--tex-sq);
+  animation-duration:48s;animation-direction:alternate-reverse;
+}
+.cta__bg::after{content:"";position:absolute;inset:0;background:rgba(14,20,22,.74)}
+.cta .wrap{position:relative;z-index:1}
+.cta .h2{margin-bottom:22px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--steel);padding:44px 0 40px}
+.foot{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start}
+.foot img{width:120px;opacity:.85}
+.foot__col{display:flex;flex-direction:column;gap:8px;font-size:14.5px;color:var(--mist)}
+.foot__col a{text-decoration:none}
+.foot__col a:hover{color:var(--chalk)}
+.foot__fine{margin-top:32px;color:#5D6A6C;font-size:13px}
+.foot__credit{margin:8px 0 0;color:#3F4A4C;font-size:12px;letter-spacing:.08em}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .wall__row--a,.wall__row--b,.drift{animation:none}
+  *{transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap bar">
+    <a class="bar__logo" href="#top" aria-label="SKAYFOM barbershop"><img src="assets/logo.webp" alt="SKAYFOM barbershop" width="132"></a>
+    <nav class="nav">
+      <a class="nav__link" href="#barbers">Барбери</a>
+      <a class="nav__link" href="#locations">Локації</a>
+      <a class="nav__link" href="#gallery">Атмосфера</a>
+      <a class="ig" href="https://www.instagram.com/barbershop.s.kayfom_irpin" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/>
+        </svg>
+        <span>Instagram</span>
+      </a>
+      <a class="btn btn--sm" href="#locations" data-book>Записатись</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero__bg" data-parallax="9" aria-hidden="true"><span class="drift"></span></div>
+    <div class="hero__in">
+      <h1 class="hero__logo"><img src="assets/logo.webp" alt="Барбершоп SKAYFOM" width="520"></h1>
+      <p class="hero__tag">Твоя ідеальна кайфова стрижка</p>
+      <div class="hero__cta">
+        <a class="btn" href="#locations" data-book>Записатись</a>
+        <a class="btn btn--ghost" href="#barbers">Крутити рулетку</a>
+      </div>
+    </div>
+    <a class="hero__scroll" href="#perks">Гортай нижче</a>
+  </section>
+
+  <div class="wall" aria-hidden="true">
+    <div class="wall__row wall__row--a" id="wallA"></div>
+    <div class="wall__row wall__row--b" id="wallB"></div>
+  </div>
+
+  <section id="perks">
+    <div class="wrap">
+      <h2 class="h2">Усі види послуг та найкращі майстри</h2>
+      <p class="lede">Чоловічі стрижки, оформлення бороди, подовжені стрижки, королівське гоління, біозавивки.</p>
+      <div class="perks">
+        <div class="perk">
+          <div class="perk__fig">−10%</div>
+          <p class="perk__t">Військовим</p>
+          <p class="perk__d">Постійна знижка на всі послуги. Просто покажи посвідчення.</p>
+        </div>
+        <div class="perk">
+          <div class="perk__fig">0 ₴</div>
+          <p class="perk__t">Видалення волосся воском</p>
+          <p class="perk__d">Вуха, ніс, шия. Робимо разом зі стрижкою, окремо не рахуємо.</p>
+        </div>
+        <div class="perk">
+          <div class="perk__fig">0 ₴</div>
+          <p class="perk__t">Укладка</p>
+          <p class="perk__d">Виходиш звідси вже готовим, а не з планами зайти додому й перевкластися.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="barbers">
+    <div class="wrap">
+      <h2 class="h2">Рулетка барберів</h2>
+      <p class="lede">Не знаєш, до кого сісти? Хай вирішить рулетка. Або гортай стрічку й обирай сам — наведи на фото, щоб побачити другий кадр.</p>
+
+      <div class="reel">
+        <div class="reel__mask"><div class="reel__track" id="track"></div></div>
+        <div class="reel__pointer" aria-hidden="true"></div>
+      </div>
+
+      <div class="reel__ctrl">
+        <button class="btn" id="spin" type="button">Крутити</button>
+        <button class="btn btn--ghost btn--sm" id="prev" type="button" aria-label="Попередній барбер">‹</button>
+        <button class="btn btn--ghost btn--sm" id="next" type="button" aria-label="Наступний барбер">›</button>
+      </div>
+
+      <div class="result" aria-live="polite">
+        <p class="result__hint" id="resHint">Натисни «крутити» — рулетка обере майстра.</p>
+        <h3 class="result__name" id="resName" hidden></h3>
+        <span class="result__role" id="resRole" hidden></span>
+        <a class="btn btn--sm result__book" id="resBook" href="#locations" hidden data-book>Записатись до майстра</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="locations">
+    <div class="wrap">
+      <h2 class="h2">Дві локації в Ірпені</h2>
+      <p class="lede">Обидві працюють щодня. Не впевнений, куди ближче — натисни кнопку нижче, підкажемо.</p>
+
+      <div class="locs" id="locs">
+        <article class="loc" data-lat="50.506563" data-lng="30.229676" data-title="SKAYFOM — Університетська 3/9">
+          <div class="loc__map" data-map="50.506563,30.229676" data-maptitle="Карта: вул. Університетська 3/9, Ірпінь" style="--shot:var(--shot1)">
+            <div class="fallback">
+              <p class="loc__meta" style="margin:0;color:var(--chalk)">Центральний парк, Ірпінь</p>
+              <button class="btn btn--sm btn--ghost" type="button" data-showmap>Показати карту</button>
+            </div>
+          </div>
+          <div class="loc__body">
+            <p class="loc__addr">вул. Університетська, 3/9</p>
+            <p class="loc__meta">Біля центрального парку</p>
+            <p class="loc__dist" data-dist hidden></p>
+            <div class="loc__tel">
+              <a href="tel:+380930515152">+380 93 051 51 52</a>
+              <a href="tel:+380680515152">+380 68 051 51 52</a>
+            </div>
+            <div class="loc__act">
+              <a class="btn btn--sm" href="https://n777483.alteg.io/company/730390/personal/menu?o=&amp;utm_source=site&amp;utm_medium=web&amp;utm_content=locations" target="_blank" rel="noopener">Записатись онлайн</a>
+              <a class="btn btn--sm btn--ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=50.506563%2C30.229676" target="_blank" rel="noopener">Маршрут</a>
+              <a class="loc__ig" href="https://www.instagram.com/barbershop.s.kayfom_irpin" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+                <span>Instagram</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="loc" data-lat="50.502775" data-lng="30.243469" data-title="SKAYFOM — Соборна 2к/22">
+          <div class="loc__map" data-map="50.502775,30.243469" data-maptitle="Карта: вул. Соборна 2к/22, Ірпінь" style="--shot:var(--shot2)">
+            <div class="fallback">
+              <p class="loc__meta" style="margin:0;color:var(--chalk)">ЖК «Молодість», Ірпінь</p>
+              <button class="btn btn--sm btn--ghost" type="button" data-showmap>Показати карту</button>
+            </div>
+          </div>
+          <div class="loc__body">
+            <p class="loc__addr">вул. Соборна, 2к/22</p>
+            <p class="loc__meta">ЖК «Молодість»</p>
+            <p class="loc__dist" data-dist hidden></p>
+            <div class="loc__tel">
+              <a href="tel:+380677771032">+380 67 777 10 32</a>
+            </div>
+            <div class="loc__act">
+              <a class="btn btn--sm" href="https://n1377435.alteg.io/" target="_blank" rel="noopener">Записатись онлайн</a>
+              <a class="btn btn--sm btn--ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=50.502775%2C30.243469" target="_blank" rel="noopener">Маршрут</a>
+              <a class="loc__ig" href="https://www.instagram.com/barbershop.s.kayfom_molodist" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+                <span>Instagram</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="geo">
+        <button class="btn btn--ghost btn--sm" id="geoBtn" type="button">Знайти найближчу до мене</button>
+        <span class="geo__msg" id="geoMsg"></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="wrap">
+      <h2 class="h2">Атмосфера</h2>
+      <p class="lede">Як усе виглядає зсередини й зовні. Натисни на фото, щоб роздивитись.</p>
+      <div class="tabs" id="galTabs" role="tablist"></div>
+      <div class="gal" id="galGrid"></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta__bg" data-parallax="10" aria-hidden="true"><span class="drift"></span></div>
+    <div class="wrap">
+      <h2 class="h2">Заходь, підстрижемо</h2>
+      <p class="lede" style="margin-inline:auto">Онлайн-запис, телефон або Direct — обирай, як зручніше.</p>
+      <div class="hero__cta">
+        <a class="btn" href="#locations" data-book>Записатись</a>
+        <a class="btn btn--ghost" href="https://www.instagram.com/barbershop.s.kayfom_irpin" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Перегляд фото">
+  <button class="lb__x" id="lbClose" type="button" aria-label="Закрити">&times;</button>
+  <button class="lb__nav lb__nav--prev" id="lbPrev" type="button" aria-label="Попереднє фото">&lsaquo;</button>
+  <img class="lb__img" id="lbImg" alt="">
+  <button class="lb__nav lb__nav--next" id="lbNext" type="button" aria-label="Наступне фото">&rsaquo;</button>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <img src="assets/logo.webp" alt="SKAYFOM barbershop" width="120">
+      <div class="foot__col">
+        <strong style="color:var(--chalk);font-weight:500">вул. Університетська, 3/9</strong>
+        <a href="tel:+380930515152">+380 93 051 51 52</a>
+        <a href="tel:+380680515152">+380 68 051 51 52</a>
+        <a href="https://www.instagram.com/barbershop.s.kayfom_irpin" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <div class="foot__col">
+        <strong style="color:var(--chalk);font-weight:500">вул. Соборна, 2к/22</strong>
+        <a href="tel:+380677771032">+380 67 777 10 32</a>
+        <a href="https://www.instagram.com/barbershop.s.kayfom_molodist" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <div class="foot__col">
+        <a href="#barbers">Барбери</a>
+        <a href="#locations">Локації</a>
+      </div>
+    </div>
+    <p class="foot__fine">© <span id="yr"></span> Барбершоп SKAYFOM, Ірпінь. Знижка 10% військовим діє постійно.</p>
+    <p class="foot__credit">Designed by Denis Garkavyi</p>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HairSalon",
+  "name":"Барбершоп SKAYFOM",
+  "image":"",
+  "url":"",
+  "sameAs":["https://www.instagram.com/barbershop.s.kayfom_irpin","https://www.instagram.com/barbershop.s.kayfom_molodist"],
+  "location":[
+    {"@type":"Place","name":"SKAYFOM — Університетська","address":{"@type":"PostalAddress","streetAddress":"вул. Університетська, 3/9","addressLocality":"Ірпінь","addressRegion":"Київська область","addressCountry":"UA"},"geo":{"@type":"GeoCoordinates","latitude":50.506563,"longitude":30.229676},"telephone":"+380930515152"},
+    {"@type":"Place","name":"SKAYFOM — Соборна","address":{"@type":"PostalAddress","streetAddress":"вул. Соборна, 2к/22","addressLocality":"Ірпінь","addressRegion":"Київська область","addressCountry":"UA"},"geo":{"@type":"GeoCoordinates","latitude":50.502775,"longitude":30.243469},"telephone":"+380677771032"}
+  ]
+}
+</script>
+
+<script>
+/* =====================================================================
+   1. НАЛАШТУВАННЯ — редагуй тільки цей блок
+   ===================================================================== */
+
+/* Кнопки «Записатись» у шапці, на банері та внизу ведуть до блоку з локаціями,
+   бо посилання на онлайн-запис у кожної точки своє (вони вшиті в картки локацій).
+   Якщо колись з'явиться одне спільне посилання — впиши його сюди. */
+const BOOKING_URL = "";
+
+/* Барбери. Порядок = порядок у рулетці.
+   name — ім'я, rank — ранг, photo — головне фото, photoAlt — друге фото (з'являється при наведенні). */
+const BARBERS = [
+  { name: "Олег",           rank: "Амбасадор",       photo: "assets/p_oleg1.webp",     photoAlt: "assets/p_oleg2.webp"     },
+  { name: "Олег «Marcus»",  rank: "Арт-барбер",      photo: "assets/p_marcus1.webp",   photoAlt: "assets/p_marcus2.webp"   },
+  { name: "Альона",         rank: "Топ-барбер",      photo: "assets/p_alyona1.webp",   photoAlt: "assets/p_alyona2.webp"   },
+  { name: "Тимофій",        rank: "Топ-барбер",      photo: "assets/p_timophey1.webp", photoAlt: "assets/p_timophey2.webp" },
+  { name: "Артур",          rank: "Старший барбер",  photo: "assets/p_arthur1.webp",   photoAlt: "assets/p_arthur2.webp"   },
+  { name: "Даша",           rank: "Старший барбер",  photo: "assets/p_dasha1.webp",    photoAlt: "assets/p_dasha2.webp"    },
+  { name: "Артем",          rank: "Молодший барбер", photo: "assets/p_artem1.webp",    photoAlt: "assets/p_artem2.webp"    }
+];
+
+/* Фото локацій. Порядок = порядок у сітці, перше фото показується великим.
+   Щоб додати знімки другої локації — поклади їх у photos відповідного блоку. */
+const GALLERIES = [
+  { id: "molodist", label: "Соборна 2к/22", photos: [
+      "assets/g_mol1.webp","assets/g_mol2.webp","assets/g_mol3.webp","assets/g_mol4.webp",
+      "assets/g_mol5.webp","assets/g_mol6.webp","assets/g_mol7.webp","assets/g_mol8.webp"
+  ]},
+  { id: "univer", label: "Університетська 3/9", photos: [
+      "assets/g_uni1.webp","assets/g_uni2.webp","assets/g_uni3.webp","assets/g_uni4.webp",
+      "assets/g_uni5.webp","assets/g_uni6.webp","assets/g_uni7.webp","assets/g_uni8.webp"
+  ]}
+];
+
+/* Слова на стіні (як у залі) */
+const WALL = ["БАРБЕР","FADE","RELAX","КРУТІСТЬ","TRIM","ДВІЖ","SHINE","ГОЛІННЯ","HUSTLE",
+  "ЕНЕРГІЯ","CLASSIC","УСПІХ","LINE UP","КОМФОРТ","MODERN","ДИЗАЙН","LEGEND","ІРПІНЬ",
+  "MATTE","СТИЛЬ","CROWN","DOPE","TOP","КИЇВ"];
+
+/* =====================================================================
+   2. Далі — логіка сайту
+   ===================================================================== */
+document.documentElement.style.setProperty('--tex-wide', "url('assets/hero-wide.webp')");
+document.documentElement.style.setProperty('--tex-tall', "url('assets/hero-tall.webp')");
+document.documentElement.style.setProperty('--tex-sq', "url('assets/tex-square.webp')");
+document.documentElement.style.setProperty('--shot1', "url('assets/loc1.webp')");
+document.documentElement.style.setProperty('--shot2', "url('assets/loc2.webp')");
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* --- онлайн-запис --- */
+if (BOOKING_URL) {
+  document.querySelectorAll('[data-book]').forEach(el => {
+    el.href = BOOKING_URL; el.target = '_blank'; el.rel = 'noopener';
+  });
+}
+
+/* --- шапка --- */
+const hdr = document.getElementById('hdr');
+addEventListener('scroll', () => hdr.classList.toggle('is-stuck', scrollY > 24), {passive:true});
+
+/* --- стіна слів --- */
+function fillWall(el, offset){
+  const line = WALL.slice(offset).concat(WALL.slice(0, offset));
+  el.innerHTML = (line.concat(line)).map((w,i) =>
+    `<span style="transform:rotate(${((i*37)%7)-3}deg)">${w}</span>`).join('');
+}
+fillWall(document.getElementById('wallA'), 0);
+fillWall(document.getElementById('wallB'), 11);
+
+/* --- карти: показуємо iframe тільки якщо реально завантажився --- */
+document.querySelectorAll('[data-showmap]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const box = btn.closest('.loc__map');
+    if (box.querySelector('iframe')) return;
+    const f = document.createElement('iframe');
+    f.title = box.dataset.maptitle;
+    f.loading = 'lazy';
+    f.referrerPolicy = 'no-referrer-when-downgrade';
+    f.src = 'https://www.google.com/maps?q=' + box.dataset.map + '&hl=uk&z=17&output=embed';
+    f.addEventListener('load', () => f.classList.add('is-on'));
+    box.appendChild(f);
+    btn.textContent = 'Завантажуємо…';
+  });
+});
+
+/* --- рулетка --- */
+const LOOPS = 5;                       // скільки разів дублюємо стрічку
+const track = document.getElementById('track');
+const N = BARBERS.length;
+
+for (let l = 0; l < LOOPS; l++){
+  BARBERS.forEach((b, i) => {
+    const c = document.createElement('button');
+    c.type = 'button';
+    c.className = 'card';
+    c.dataset.i = i;
+    c.innerHTML =
+      `<span class="card__ph">
+         <img class="card__img" src="${b.photo}" alt="${b.name}, ${b.rank}" loading="${l < 2 ? 'eager' : 'lazy'}">
+         <img class="card__img card__img--alt" src="${b.photoAlt}" alt="" aria-hidden="true" loading="lazy">
+       </span>
+       <p class="card__name">${b.name}</p>
+       <p class="card__rank">${b.rank}</p>`;
+    c.addEventListener('click', () => select(cards.indexOf(c)));
+    track.appendChild(c);
+  });
+}
+const cards = [...track.children];
+
+let current = 0;                       // індекс у межах 0..N-1
+let slot = Math.floor(LOOPS / 2) * N;  // позиція у дубльованій стрічці
+
+function offsetFor(idx){
+  const card = cards[idx];
+  const mask = track.parentElement;
+  return mask.clientWidth / 2 - (card.offsetLeft + card.offsetWidth / 2);
+}
+function place(idx, animate, dur){
+  track.style.transition = animate ? `transform ${dur}ms cubic-bezier(.13,.82,.17,1)` : 'none';
+  track.style.transform = `translate3d(${offsetFor(idx)}px,0,0)`;
+  cards.forEach(c => c.classList.remove('is-active'));
+  cards[idx].classList.add('is-active');
+}
+
+const resHint = document.getElementById('resHint');
+const resName = document.getElementById('resName');
+const resRole = document.getElementById('resRole');
+const resBook = document.getElementById('resBook');
+
+function showResult(i){
+  const b = BARBERS[i];
+  resHint.hidden = true;
+  resName.hidden = resRole.hidden = resBook.hidden = false;
+  resName.textContent = b.name;
+  resRole.textContent = b.rank;
+}
+
+let spinning = false;
+function spin(){
+  if (spinning) return;
+  spinning = true;
+  const pick = Math.floor(Math.random() * N);
+  const target = (LOOPS - 1) * N + pick;      // летимо в останній цикл
+  const dur = reduce ? 0 : 3600;
+  place(target, !reduce, dur);
+  const finish = () => {
+    current = pick;
+    slot = Math.floor(LOOPS / 2) * N + pick;  // тихо повертаємось у середину
+    place(slot, false);
+    showResult(pick);
+    spinning = false;
+  };
+  reduce ? finish() : setTimeout(finish, dur + 60);
+}
+function select(idx){
+  if (spinning) return;
+  slot = Math.min(cards.length - 1, Math.max(0, idx));
+  current = +cards[slot].dataset.i;
+  place(slot, true, 420);
+  showResult(current);
+}
+function step(dir){ select(slot + dir); }
+
+document.getElementById('spin').addEventListener('click', spin);
+document.getElementById('prev').addEventListener('click', () => step(-1));
+document.getElementById('next').addEventListener('click', () => step(1));
+
+function reset(){ place(slot, false); }
+addEventListener('resize', reset);
+if (document.readyState === 'complete') reset();
+else addEventListener('load', reset);
+reset();
+
+/* --- паралакс фонів (банер і нижній блок) --- */
+const layers = [...document.querySelectorAll('[data-parallax]')];
+if (!reduce && layers.length){
+  let queued = false;
+  const moveLayers = () => {
+    const vh = innerHeight;
+    for (const el of layers){
+      const r = el.parentElement.getBoundingClientRect();
+      if (r.bottom < -160 || r.top > vh + 160) continue;
+      const progress = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2);
+      const shift = Math.max(-1, Math.min(1, progress)) * (+el.dataset.parallax || 8);
+      el.style.transform = `translate3d(0, ${shift.toFixed(2)}%, 0)`;
+    }
+    queued = false;
+  };
+  addEventListener('scroll', () => {
+    if (!queued){ queued = true; requestAnimationFrame(moveLayers); }
+  }, {passive: true});
+  addEventListener('resize', moveLayers);
+  addEventListener('load', moveLayers);
+  moveLayers();
+}
+
+/* --- галерея локацій --- */
+const galTabs = document.getElementById('galTabs');
+const galGrid = document.getElementById('galGrid');
+const sets = GALLERIES.filter(g => g.photos.length);
+let galIdx = 0;
+
+function renderGallery(){
+  const set = sets[galIdx];
+  galGrid.innerHTML = set.photos.map((src, i) =>
+    `<button class="gal__i" type="button" data-i="${i}" aria-label="Фото ${i + 1}, ${set.label}">
+       <img src="${src}" alt="Барбершоп SKAYFOM, ${set.label}" loading="${i < 4 ? 'eager' : 'lazy'}">
+     </button>`).join('');
+  [...galTabs.children].forEach((t, i) => t.setAttribute('aria-selected', i === galIdx));
+}
+
+if (!sets.length){
+  document.getElementById('gallery').hidden = true;
+} else {
+  if (sets.length > 1){
+    galTabs.innerHTML = sets.map(g =>
+      `<button class="tab" type="button" role="tab">${g.label}</button>`).join('');
+    [...galTabs.children].forEach((t, i) =>
+      t.addEventListener('click', () => { galIdx = i; renderGallery(); }));
+  } else {
+    galTabs.hidden = true;
+  }
+  renderGallery();
+}
+
+/* --- лайтбокс --- */
+const lb = document.getElementById('lb');
+const lbImg = document.getElementById('lbImg');
+let lbI = 0;
+
+function lbShow(i){
+  const ph = sets[galIdx].photos;
+  lbI = (i + ph.length) % ph.length;
+  lbImg.src = ph[lbI];
+  lbImg.alt = `Барбершоп SKAYFOM, ${sets[galIdx].label}`;
+}
+function lbOpen(i){ lbShow(i); lb.hidden = false; document.body.style.overflow = 'hidden'; document.getElementById('lbClose').focus(); }
+function lbHide(){ lb.hidden = true; document.body.style.overflow = ''; }
+
+galGrid.addEventListener('click', e => {
+  const b = e.target.closest('.gal__i');
+  if (b) lbOpen(+b.dataset.i);
+});
+document.getElementById('lbClose').addEventListener('click', lbHide);
+document.getElementById('lbPrev').addEventListener('click', () => lbShow(lbI - 1));
+document.getElementById('lbNext').addEventListener('click', () => lbShow(lbI + 1));
+lb.addEventListener('click', e => { if (e.target === lb) lbHide(); });
+addEventListener('keydown', e => {
+  if (lb.hidden) return;
+  if (e.key === 'Escape') lbHide();
+  if (e.key === 'ArrowLeft') lbShow(lbI - 1);
+  if (e.key === 'ArrowRight') lbShow(lbI + 1);
+});
+
+/* --- гео: найближча локація --- */
+const geoBtn = document.getElementById('geoBtn');
+const geoMsg = document.getElementById('geoMsg');
+const locs = [...document.querySelectorAll('.loc')];
+
+function km(a, b, c, d){
+  const R = 6371, r = Math.PI / 180;
+  const dLat = (c - a) * r, dLng = (d - b) * r;
+  const h = Math.sin(dLat/2)**2 + Math.cos(a*r) * Math.cos(c*r) * Math.sin(dLng/2)**2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+geoBtn.addEventListener('click', () => {
+  if (!navigator.geolocation){
+    geoMsg.textContent = 'Браузер не вміє визначати місце. Обери локацію вручну.';
+    return;
+  }
+  geoBtn.disabled = true;
+  geoMsg.textContent = 'Шукаємо…';
+  navigator.geolocation.getCurrentPosition(pos => {
+    const {latitude:la, longitude:lo} = pos.coords;
+    let best = null;
+    locs.forEach(el => {
+      const d = km(la, lo, +el.dataset.lat, +el.dataset.lng);
+      const out = el.querySelector('[data-dist]');
+      out.hidden = false;
+      out.textContent = (d < 1 ? Math.round(d * 1000) + ' м' : d.toFixed(1) + ' км') + ' від тебе';
+      el.classList.remove('is-near');
+      if (!best || d < best.d) best = {el, d};
+    });
+    best.el.classList.add('is-near');
+    geoMsg.textContent = 'Ближче — ' + best.el.dataset.title.split('— ')[1] + '.';
+    geoBtn.disabled = false;
+    best.el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'center'});
+  }, () => {
+    geoMsg.textContent = 'Не вдалось отримати координати — дозволь доступ до геолокації або обери локацію вручну.';
+    geoBtn.disabled = false;
+  }, {timeout: 9000});
+});
+</script>
+</body>
+</html>
